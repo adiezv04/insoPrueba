@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <!-- <p:panelGrid columns="1">
+                <h:link outcome="private/altaCategoria" value="Crear Categoria"></h:link>
+                <h:link outcome="private/modificarCategoria" value="Modificar Categoria"></h:link>
+                <h:link outcome="private/eliminarCategoria" value="Eliminar Categoria"></h:link>
+                <h:link outcome="private/altaUsuario" value="Crear Usuario"></h:link>
+            </p:panelGrid> -->
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Nombre de usuario" for="usuario"/>
+                <p:inputText value="#{indexController.usuario.user}" id="usuario"/>
+                <p:outputLabel value="Contraseña" for="pass"/>
+                <p:password value="#{indexController.usuario.password}" id="pass"/>
+            </p:panelGrid>
+            <p:commandButton value="Iniciar Sesión" action="#{indexController.verificarUsuario()}"/>
+        </h:form>
+        
+    </h:body>
+</html>
+

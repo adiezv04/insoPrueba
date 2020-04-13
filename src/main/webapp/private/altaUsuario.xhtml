@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template/newTemplate.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <p:messages id="messages" showDetail="true" closable="true">
+                        <p:autoUpdate/>
+                    </p:messages>
+                    <p:fieldset legend="Datos personales" style="margin-bottom:20px">
+                        <p:panelGrid columns="2">
+                            
+                            <p:outputLabel for="txt1" value="Nombre:"/>
+                            <p:inputText value="#{usuarioControl.persona.nombre}" required="true" id="txt1"/>
+                            
+                            <p:outputLabel for="txt2" value="Primer apellido:"/>
+                            <p:inputText value="#{usuarioControl.persona.apellido1}" required="true" id="txt2"/>
+                            
+                            <p:outputLabel for="txt3" value="Segundo apellido:"/>
+                            <p:inputText value="#{usuarioControl.persona.apellido2}" required="true" id="txt3"/>
+                            
+                            <p:outputLabel value="Sexo:" for="inputSex"/>
+                            <p:selectOneButton value="#{usuarioControl.persona.sexo}" id="inputSex" unselectable="false">
+                                <f:selectItem itemLabel="Masculino" itemValue=""/>
+                                <f:selectItem itemLabel="Femenino" itemValue=""/>
+                            </p:selectOneButton>
+                            
+                            <p:outputLabel value="Fecha de Nacimiento:" for="fecha"/>
+                            <p:calendar value="#{usuarioControl.persona.fechaNacimiento}" required="true" id="fecha" locale="es"/>
+                            
+                        </p:panelGrid>
+                    </p:fieldset>
+                    <p:fieldset legend="Datos de acceso" style="margin-bottom:20px">
+                        <p:panelGrid columns="2">
+                            
+                            <p:outputLabel value="Rol:"/>
+                            <p:selectOneMenu value="#{usuarioControl.rol.idRol}">
+                                <f:selectItems value="#{usuarioControl.listaRoles}"
+                                               var="r" itemLabel="#{r.descripcion}" itemValue="#{r.idRol}"/>
+                            </p:selectOneMenu>
+                            
+                            <p:outputLabel value="Nombre de usuario:" for="txt4"/>
+                            <p:inputText value="#{usuarioControl.usuario.user}" required="true" id="txt4"/>
+                            
+                            <p:outputLabel value="Contraseña:" for="txt5"/>
+                            <p:password value="#{usuarioControl.usuario.password}" required="true" id="txt5"/>
+                            
+                            <p:outputLabel value="Repetir contraseña:" for="txt6"/>
+                            <p:password required="true" id="txt6"/>
+                        </p:panelGrid>
+                    </p:fieldset>
+                    <p:commandButton value="Registrar" actionListener="#{usuarioControl.insertarUsuario()}"/>
+                    
+                <h:outputScript library="js" name="calendar.js"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+    
+</html>
