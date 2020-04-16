@@ -5,8 +5,9 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="index.css"/>
     </h:head>
-    <h:body>
+    <h:body id="principal">
         <h:form>
             <!-- <p:panelGrid columns="1">
                 <h:link outcome="private/altaCategoria" value="Crear Categoria"></h:link>
@@ -14,13 +15,15 @@
                 <h:link outcome="private/eliminarCategoria" value="Eliminar Categoria"></h:link>
                 <h:link outcome="private/altaUsuario" value="Crear Usuario"></h:link>
             </p:panelGrid> -->
-            <p:panelGrid columns="2">
-                <p:outputLabel value="Nombre de usuario" for="usuario"/>
-                <p:inputText value="#{indexController.usuario.user}" id="usuario"/>
-                <p:outputLabel value="Contraseña" for="pass"/>
-                <p:password value="#{indexController.usuario.password}" id="pass"/>
-            </p:panelGrid>
-            <p:commandButton value="Iniciar Sesión" action="#{indexController.verificarUsuario()}"/>
+            <div id="usuario">
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Nombre de usuario" for="usuario"/>
+                    <p:inputText value="#{indexController.usuario.user}" id="usuario"/>
+                    <p:outputLabel value="Contraseña" for="pass"/>
+                    <p:password value="#{indexController.usuario.password}" id="pass"/>
+                </p:panelGrid>
+                <p:commandButton value="Iniciar Sesión" action="#{indexController.verificarUsuario()}"/>
+            </div>
         </h:form>
         
     </h:body>

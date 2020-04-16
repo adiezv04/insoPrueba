@@ -5,6 +5,7 @@
  */
 package control;
 
+import java.io.IOException;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -43,6 +44,11 @@ public class MenuController implements Serializable{
         DefaultMenuItem item = new DefaultMenuItem("item"+tipo);
         modelo.addElement(item);
         modelo.addElement(subMenu);
+    }
+    
+    public void destruirSesion() throws IOException{
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        FacesContext.getCurrentInstance().getExternalContext().redirect("../index.xhtml");
     }
 
     public MenuModel getModelo() {

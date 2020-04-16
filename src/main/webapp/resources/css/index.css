@@ -1,0 +1,16 @@
+/* 
+    Created on : 14-abr-2020, 18:40:05
+    Author     : "adrian"
+*/
+
+#principal{
+    width: 1024px;
+    margin: 0 auto;
+}
+
+#usuario{
+    margin: 100px auto;
+    width: 40%;
+    text-align:center;
+}
+

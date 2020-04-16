@@ -11,6 +11,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import modelo.Categoria;
 
@@ -24,13 +25,13 @@ import modelo.Categoria;
 public class CategoriaControl implements Serializable{
     
     private List<Categoria> listaCategorias;
+    @Inject
     private Categoria cat;
     @EJB
     private CategoriaFacadeLocal categoriaEJB;
     
     @PostConstruct
     public void inicio(){
-        cat = new Categoria();
         listaCategorias = categoriaEJB.findAll();
     }
     
